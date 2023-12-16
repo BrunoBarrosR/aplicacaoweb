@@ -7,28 +7,49 @@
     <title>Login - Controle de Gastos</title>
 </head>
 
-<body>
+<body class="centralize">
     <form>
-        <div>
+        <div class="form-field">
             <div><label for="">Email</label></div>
-            <input type="email" name="email" id="email" onchange="validateFields()" placeholder="seu@email.com">
+            <input type="email" name="email" id="email" onchange="onChangeEmail()" placeholder="seu@email.com">
+            <div class="error" id="email-obrigatorio-error">Email é obrigatório</div>
+            <div class="error" id="email-invalido-error">Email é inválido</div>
         </div>
         <div>
             <div><label for="">Senha</label></div>
-            <input type="password" name="password" id="password" onchange="validateFields()" placeholder="Senha">
+            <input type="password" name="password" id="password" onchange="onChangePassword()" placeholder="Senha">
+            <div class="error" id="senha-obrigatoria-error">Senha é obrigatória</div>
         </div>
-        <div>
+        <div class="form-field">
             <button type="button" class="clear" id="recuperar-senha-botao" disabled="true">Recuperar senha</button>
         </div>
         <div>
-            <button type="button" class="solid" id="login-button" disabled="true">Entrar</button>
+            <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
         </div>
         <div>
-            <button type="button" class="outline">Registrar</button>
+            <button type="button" class="outline" onclick="register()">Registrar</button>
         </div>
     </form>
 </body>
+
 <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="global.css">
 <script src="index.js"></script>
+<script src="validation.js"></script>
+<script src="loading.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyByUvh1KQfBp379fzVblybbF6ZLA5DVtmk",
+        authDomain: "controle-de-gastos-1c5b4.firebaseapp.com",
+        projectId: "controle-de-gastos-1c5b4",
+        storageBucket: "controle-de-gastos-1c5b4.appspot.com",
+        messagingSenderId: "332250624477",
+        appId: "1:332250624477:web:8cf31b6e87a1ef6075c634"
+    };
+    firebase.initializeApp(firebaseConfig);
+    
+</script>
 
 </html>
